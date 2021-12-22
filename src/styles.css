@@ -1,0 +1,8 @@
+.chgColorWithMsOver {
+  margin: auto;
+  color: rgb(0, 0, 0);
+}
+.chgColorWithMsOver:hover {
+  color: black;
+  background-color: yellow;
+}
