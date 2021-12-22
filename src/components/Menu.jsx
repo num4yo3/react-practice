@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles.css";
 
-const styleButton = {
+const sMenu = {
   width: "100px",
   height: "auto",
   textAlign: "center",
@@ -21,22 +21,22 @@ const menuList = [
   { id: "menu03", link: "link03" }
 ];
 
-export const HighlightText = () => {
+export const Menu = ({ children }) => {
   const [highlight, setHighlight] = useState(false);
   return (
     <ul
-      style={styleButton}
+      style={sMenu}
       onMouseEnter={() => setHighlight(true)}
       onMouseLeave={() => setHighlight(false)}
     >
-      Menu
+      {children}
       {highlight && (
         <>
           {menuList.map((list) => {
             return (
-              <li key={list.id} style={sMenuItem}>
-                <a href={list.link}>
-                  <div>{list.id}</div>
+              <li key={list.id}>
+                <a href={list.link} style={{ textDecoration: "none" }}>
+                  <div style={sMenuItem}>{list.id}</div>
                 </a>
               </li>
             );
