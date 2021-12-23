@@ -26,6 +26,25 @@ export const App = () => {
       <div>scroll height: {scrollheight}px</div>
       <h2>log of input text</h2>
       <LogComment />
+      <div className="slider-wrap">
+        <ul className="slider">
+          <li>
+            <div>
+              <h3>AAA</h3>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>BBB</h3>
+            </div>
+          </li>
+          <li>
+            <div>
+              <h3>CCC</h3>
+            </div>
+          </li>
+        </ul>
+      </div>
     </>
   );
 };
