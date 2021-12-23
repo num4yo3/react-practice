@@ -14,7 +14,9 @@
   /* overflow: hidden; */
 }
 .slider {
+  display: flex;
   position: absolute;
+  list-style: none;
   top: 0px;
   left: 0px;
   margin: 0px;
@@ -25,11 +27,18 @@
 }
 
 .slider li {
-  float: left;
+  /* display:flex; */
   position: relative;
   margin: 0px;
   padding: 0px;
   width: 200px;
   height: 100px;
   outline: dotted 1px black;
+  transform: translate(0px, 0px);
+  text-align: center;
+}
+
+.slider div {
+  width: 200px;
+  height: 100px;
 }
