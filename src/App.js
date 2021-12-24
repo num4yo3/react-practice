@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./styles.css";
 import { Menu } from "./components/Menu";
 import { DoubleButton } from "./components/DoubleButton";
 import { LogComment } from "./components/LogComment";
+import { SlideShow } from "./components/SlideShow";
 
 export const App = () => {
   const [scrollheight, setScrollheight] = useState(0);
@@ -14,14 +14,6 @@ export const App = () => {
     capture: false,
     passive: true
   });
-  const [sliderIndex, setSliderIndex] = useState(0);
-  const onClickLeft = () => {
-    setSliderIndex((sliderIndex + 3) % 4);
-  };
-  const onClickRight = () => {
-    setSliderIndex((sliderIndex + 1) % 4);
-  };
-  const sliderImage = ["AAA", "BBB", "CCC", "DDD"];
 
   return (
     <>
@@ -36,21 +28,8 @@ export const App = () => {
       <div>scroll height: {scrollheight}px</div>
       <h2>log of input text</h2>
       <LogComment />
-
       <h2>slideshow</h2>
-      <button type="button" onClick={onClickLeft}>
-        Left
-      </button>
-      <button type="button" onClick={onClickRight}>
-        Right
-      </button>
-      <div>
-        <TransitionGroup className="slider-wrap">
-          <CSSTransition key={sliderIndex} className="slide" timeout={1500}>
-            <div className="main">{sliderImage[sliderIndex]}</div>
-          </CSSTransition>
-        </TransitionGroup>
-      </div>
+      <SlideShow />
     </>
   );
 };

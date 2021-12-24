@@ -6,7 +6,7 @@
   color: black;
   background-color: yellow;
 }
-.slider-wrap {
+.wrap {
   display: flex;
   position: relative;
   width: 200px;
@@ -16,26 +16,28 @@
 }
 .main {
   position: absolute;
-  /* top: 0;
+  top: 0;
   left: 0;
   right: 0;
-  bottom: 0; */
+  bottom: 0;
   width: 100px;
   height: 80px;
   outline: solid 2px red;
 }
 
-.slide-enter {
-  transform: translateX(100%);
+.enter {
+  color: red;
+  transform: translateX(100px);
 }
-.slide-enter-active {
-  transform: translateX(0%);
-  transition: transform 1500ms ease-in-out;
+.enter-active {
+  color: blue;
+  transform: translateX(0px);
+  transition: transform 1000ms ease-in-out;
 }
-.slide-exit {
-  transform: translateX(0%);
+.exit {
+  transform: translateX(0px);
 }
-.slide-exit-active {
-  transform: translateX(-100%);
-  transition: transform 1500ms ease-in-out;
+.exit-active {
+  transform: translateX(-100px);
+  transition: transform 1000ms ease-in-out;
 }
