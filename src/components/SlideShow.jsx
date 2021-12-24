@@ -23,22 +23,18 @@ const Root = styled.div`
     text-align: center;
   }
   .slide-enter {
-    color: red;
-    transform: translateX(100%);
+    transform: translateX(${(props) => (props.toleft ? "100%" : "-100%")});
   }
   .slide-enter-active {
-    color: red;
     transform: translateX(0%);
-    transition: transform 3000ms ease-in-out;
+    transition: transform ${(props) => props.duration + "ms"} ease-in-out;
   }
   .slide-exit {
-    color: red;
     transform: translateX(0%);
   }
   .slide-exit-active {
-    color: red;
-    transform: translateX(-100%);
-    transition: transform 3000ms ease-in-out;
+    transform: translateX(${(props) => (props.toleft ? "-100%" : "100%")});
+    transition: transform ${(props) => props.duration + "ms"} ease-in-out;
   }
 `;
 
@@ -57,13 +53,13 @@ export const SlideShow = () => {
   const sliderImage = ["AAA", "BBB", "CCC", "DDD"];
 
   return (
-    <Root slideDirection={slideLR}>
+    <Root toleft={slideLR} duration="500">
       <button onClick={onClickLeft}>Left</button>
       <button onClick={onClickRight}>Right</button>
       <div className="wrap">
         <TransitionGroup>
           {/* USE className"s" for CSSTransition */}
-          <CSSTransition key={sliderIndex} classNames="slide" timeout={3000}>
+          <CSSTransition key={sliderIndex} classNames="slide" timeout={500}>
             <div className="main">{sliderImage[sliderIndex]}</div>
           </CSSTransition>
         </TransitionGroup>
