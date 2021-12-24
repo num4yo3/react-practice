@@ -7,38 +7,35 @@
   background-color: yellow;
 }
 .slider-wrap {
+  display: flex;
   position: relative;
   width: 200px;
   height: 100px;
   outline: solid 1px black;
   /* overflow: hidden; */
 }
-.slider {
-  display: flex;
+.main {
   position: absolute;
-  list-style: none;
-  top: 0px;
-  left: 0px;
-  margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: 100%;
-  outline: solid 1px silver;
+  /* top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; */
+  width: 100px;
+  height: 80px;
+  outline: solid 2px red;
 }
 
-.slider li {
-  /* display:flex; */
-  position: relative;
-  margin: 0px;
-  padding: 0px;
-  width: 200px;
-  height: 100px;
-  outline: dotted 1px black;
-  transform: translate(0px, 0px);
-  text-align: center;
+.slide-enter {
+  transform: translateX(100%);
 }
-
-.slider div {
-  width: 200px;
-  height: 100px;
+.slide-enter-active {
+  transform: translateX(0%);
+  transition: transform 1500ms ease-in-out;
+}
+.slide-exit {
+  transform: translateX(0%);
+}
+.slide-exit-active {
+  transform: translateX(-100%);
+  transition: transform 1500ms ease-in-out;
 }

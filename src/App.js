@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import "./styles.css";
 import { Menu } from "./components/Menu";
 import { DoubleButton } from "./components/DoubleButton";
@@ -15,11 +16,12 @@ export const App = () => {
   });
   const [sliderIndex, setSliderIndex] = useState(0);
   const onClickLeft = () => {
-    setSliderIndex((sliderIndex + 2) % 3);
+    setSliderIndex((sliderIndex + 3) % 4);
   };
   const onClickRight = () => {
-    setSliderIndex((sliderIndex + 1) % 3);
+    setSliderIndex((sliderIndex + 1) % 4);
   };
+  const sliderImage = ["AAA", "BBB", "CCC", "DDD"];
 
   return (
     <>
@@ -34,6 +36,7 @@ export const App = () => {
       <div>scroll height: {scrollheight}px</div>
       <h2>log of input text</h2>
       <LogComment />
+
       <h2>slideshow</h2>
       <button type="button" onClick={onClickLeft}>
         Left
@@ -41,39 +44,12 @@ export const App = () => {
       <button type="button" onClick={onClickRight}>
         Right
       </button>
-      <div className="slider-wrap">
-        <ul className="slider">
-          <li id="slider-item">
-            <div>
-              <h3>AAA</h3>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h3>BBB</h3>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h3>CCC</h3>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h3>DDD</h3>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h3>EEE</h3>
-            </div>
-          </li>
-          <li>
-            <div>
-              <h3>FFF</h3>
-            </div>
-          </li>
-        </ul>
+      <div>
+        <TransitionGroup className="slider-wrap">
+          <CSSTransition key={sliderIndex} className="slide" timeout={1500}>
+            <div className="main">{sliderImage[sliderIndex]}</div>
+          </CSSTransition>
+        </TransitionGroup>
       </div>
     </>
   );
