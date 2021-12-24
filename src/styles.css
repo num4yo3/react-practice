@@ -6,38 +6,3 @@
   color: black;
   background-color: yellow;
 }
-.wrap {
-  display: flex;
-  position: relative;
-  width: 200px;
-  height: 100px;
-  outline: solid 1px black;
-  /* overflow: hidden; */
-}
-.main {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100px;
-  height: 80px;
-  outline: solid 2px red;
-}
-
-.enter {
-  color: red;
-  transform: translateX(100px);
-}
-.enter-active {
-  color: blue;
-  transform: translateX(0px);
-  transition: transform 1000ms ease-in-out;
-}
-.exit {
-  transform: translateX(0px);
-}
-.exit-active {
-  transform: translateX(-100px);
-  transition: transform 1000ms ease-in-out;
-}
